@@ -16,11 +16,6 @@ defmodule KanbanTrello.Router do
   scope "/", KanbanTrello do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "*path", PageController, :index
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", KanbanTrello do
-  #   pipe_through :api
-  # end
 end
