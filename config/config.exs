@@ -14,6 +14,14 @@ config :kanban_trello, KanbanTrello.Endpoint,
   pubsub: [name: KanbanTrello.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
+#configure Guardian 
+config :guardian, Guardian,
+  issuer: "KanbanTrello",
+  ttl: { 3, :days},
+  verify_issuer: true,
+  secret_key: '',
+  serializer: KanbanTrello.GuardianSerializer
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
